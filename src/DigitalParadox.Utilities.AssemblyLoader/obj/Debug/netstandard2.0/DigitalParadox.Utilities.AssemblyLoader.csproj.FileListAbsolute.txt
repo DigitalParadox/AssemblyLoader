@@ -1,0 +1,9 @@
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader\obj\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.csprojResolveAssemblyReference.cache
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader\obj\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.csproj.CoreCompileInputs.cache
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader\obj\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.AssemblyInfoInputs.cache
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader\obj\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.AssemblyInfo.cs
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader\bin\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.deps.json
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader\bin\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.dll
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader\bin\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.pdb
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader\obj\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.dll
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader\obj\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.pdb
