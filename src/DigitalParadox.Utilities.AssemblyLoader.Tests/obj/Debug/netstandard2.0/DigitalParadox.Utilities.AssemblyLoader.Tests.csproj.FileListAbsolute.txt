@@ -7,3 +7,5 @@ C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities
 C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader.Tests\obj\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.Tests.AssemblyInfo.cs
 C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader.Tests\obj\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.Tests.dll
 C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader.Tests\obj\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.Tests.pdb
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader.Tests\bin\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.dll
+C:\Users\christopher.mcgrath\Desktop\AssemblyLoader\src\DigitalParadox.Utilities.AssemblyLoader.Tests\bin\Debug\netstandard2.0\DigitalParadox.Utilities.AssemblyLoader.pdb

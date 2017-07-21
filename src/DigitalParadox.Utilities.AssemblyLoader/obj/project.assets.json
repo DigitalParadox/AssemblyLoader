@@ -3099,9 +3099,6 @@
   },
   "project": {
     "version": "1.0.0-beta",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\christopher.mcgrath\\Desktop\\AssemblyLoader\\src\\DigitalParadox.Utilities.AssemblyLoader\\DigitalParadox.Utilities.AssemblyLoader.csproj",
       "projectName": "DigitalParadox.Utilities.AssemblyLoader",
@@ -3123,6 +3120,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Users\\christopher.mcgrath\\Desktop\\commandline-bugs\\nuget-packages": {},
         "https://api.nuget.org/v3/index.json": {},
+        "https://ci.appveyor.com/nuget/digitalparadox-assemblyloader": {},
         "https://nuget.org/api/v2/": {}
       },
       "frameworks": {
@@ -3139,18 +3137,6 @@
     "frameworks": {
       "netstandard2.0": {
         "dependencies": {
-          "System.Runtime.Loader": {
-            "target": "Package",
-            "version": "4.3.0"
-          },
-          "System.Reflection.Metadata": {
-            "target": "Package",
-            "version": "1.5.0-preview2-25405-01"
-          },
-          "Microsoft.Extensions.PlatformAbstractions": {
-            "target": "Package",
-            "version": "1.1.0"
-          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
@@ -3160,6 +3146,18 @@
           "Microsoft.Extensions.DependencyModel": {
             "target": "Package",
             "version": "2.0.0-preview2-25407-01"
+          },
+          "Microsoft.Extensions.PlatformAbstractions": {
+            "target": "Package",
+            "version": "1.1.0"
+          },
+          "System.Reflection.Metadata": {
+            "target": "Package",
+            "version": "1.5.0-preview2-25405-01"
+          },
+          "System.Runtime.Loader": {
+            "target": "Package",
+            "version": "4.3.0"
           }
         },
         "imports": [

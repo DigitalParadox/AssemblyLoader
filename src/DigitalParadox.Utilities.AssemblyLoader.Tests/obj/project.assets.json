@@ -3117,9 +3117,6 @@
   },
   "project": {
     "version": "1.0.0",
-    "restoreSettings": {
-      "hideWarningsAndErrors": true
-    },
     "restore": {
       "projectUniqueName": "C:\\Users\\christopher.mcgrath\\Desktop\\AssemblyLoader\\src\\DigitalParadox.Utilities.AssemblyLoader.Tests\\DigitalParadox.Utilities.AssemblyLoader.Tests.csproj",
       "projectName": "DigitalParadox.Utilities.AssemblyLoader.Tests",
@@ -3141,6 +3138,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Users\\christopher.mcgrath\\Desktop\\commandline-bugs\\nuget-packages": {},
         "https://api.nuget.org/v3/index.json": {},
+        "https://ci.appveyor.com/nuget/digitalparadox-assemblyloader": {},
         "https://nuget.org/api/v2/": {}
       },
       "frameworks": {

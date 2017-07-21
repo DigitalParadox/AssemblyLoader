@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "DigitalParadox.Utilities.AssemblyLoader/1.0.0": {
+      "DigitalParadox.Utilities.AssemblyLoader/1.0.0-beta": {
         "dependencies": {
           "Microsoft.Extensions.DependencyModel": "2.0.0-preview2-25407-01",
           "Microsoft.Extensions.PlatformAbstractions": "1.1.0",
@@ -501,7 +501,7 @@
     }
   },
   "libraries": {
-    "DigitalParadox.Utilities.AssemblyLoader/1.0.0": {
+    "DigitalParadox.Utilities.AssemblyLoader/1.0.0-beta": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

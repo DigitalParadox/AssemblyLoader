@@ -2,6 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <Version>1.0.0-beta</Version>
+    <Authors>Chris McGrath</Authors>
+    <Company />
+    <Product>Digital Paradox Assembly Loader</Product>
+    <Description>Utility library for loading assemblies dynamically</Description>
   </PropertyGroup>
 
   <ItemGroup>
