@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Loader;
-using Microsoft.Extensions.PlatformAbstractions;
+
 
 namespace DigitalParadox.Utilities.AssemblyLoader
 {
-    
-
     public static class AssemblyLoader
     {
         /// <summary>
@@ -40,6 +38,35 @@ namespace DigitalParadox.Utilities.AssemblyLoader
             return filtered;
         }
 
+        public static Assembly GetAssembly<T>(FileInfo fi)
+        {
+            var assemblies = new List<Assembly> {Assembly.Load(fi.FullName)};
+            var filtered = assemblies.FirstOrDefault(q => FindDerivedTypes<T>(q).Any());
+            return filtered;
+        }
+
+        public static IEnumerable<Assembly> GetAssemblies<T>(DirectoryInfo di)
+        {
+            var fsis = di.GetFileSystemInfos();
+            
+            foreach (var fsi in fsis)
+            {
+                if (fsi is DirectoryInfo)
+                {
+                    Trace.Write($"Directory {fsi.Name} Found digging deeper..");
+
+                    GetAssemblies<T>(fsi as DirectoryInfo);
+                }
+                yield return GetAssembly<T>(fsi as FileInfo);
+            }
+        }
+        public static IEnumerable<Assembly> GetAssemblies<T>(string path)
+        {
+
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var filtered = assemblies.Where(q => FindDerivedTypes<T>(q).Any());
+            return filtered;
+        }
         /// <summary>
         ///     Find All Derived Types of <see cref="T" />in a collection of assemblies
         /// </summary>
