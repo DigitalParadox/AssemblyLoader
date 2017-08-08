@@ -22,7 +22,7 @@ namespace DigitalParadox.Utilities.AssemblyLoader.Tests
 
         }
         [Theory]
-        [InlineData(@".\TestDirectory")]
+        [InlineData(@".\TestAssemblies")]
         //[InlineData(@".\TestAssembliesMultiDirectory")]
         public void GetAssembliesLoadsExpectedAssembliesFromDirectoryPath(string path)
         {

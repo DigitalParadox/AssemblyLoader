@@ -55,7 +55,11 @@ namespace DigitalParadox.Utilities.AssemblyLoader
                 {
                     Trace.Write($"Directory {fsi.Name} Found digging deeper..");
 
-                    GetAssemblies<T>(fsi as DirectoryInfo);
+                    foreach (var assembly in GetAssemblies<T>(fsi as DirectoryInfo))
+                    {
+                        yield return assembly;
+                    }
+                    
                 }
                 yield return GetAssembly<T>(fsi as FileInfo);
             }
