@@ -10,28 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="TestAssembliesMultiDirectory\**" />
+    <EmbeddedResource Remove="TestAssembliesMultiDirectory\**" />
+    <None Remove="TestAssembliesMultiDirectory\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="TestAssemblies\TestAssembly.dll" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="TestAssembliesMultiDirectory\TreeStructure - Copy\TestAssembly.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestAssembliesMultiDirectory\TreeStructure\TreeSubdirectoryLv1\TestAssembly.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestAssembliesMultiDirectory\TreeStructure\TreeSubdirectoryLv1\TreeSubdirectoryLv2\TestAssembly.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestAssembliesMultiDirectory\TreeStructure\TestAssembly.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestAssembliesMultiDirectory\SingleSubdirectory\TestAssembly.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TestAssembliesMultiDirectory\TestAssembly.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="TestAssemblies\TestAssembly.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -47,16 +35,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TestAssembliesMultiDirectory\">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Folder>
     <Folder Include="TestAssemblies\">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Folder>
   </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="@powershell -NoProfile  Copy-Item -Path $(SolutionDir)\src\TestAssembly\$(OutDir)\TestAssembly.dll -Destination $(ProjectDir)\TestAssemblies\  -force" />
+    <Exec Command="xcopy /Y &quot;$(SolutionDir)src\TestAssembly\$(OutDir)TestAssembly.dll&quot;  &quot;$(ProjectDir)TestAssemblies&quot;" />
   </Target>
 
 </Project>
