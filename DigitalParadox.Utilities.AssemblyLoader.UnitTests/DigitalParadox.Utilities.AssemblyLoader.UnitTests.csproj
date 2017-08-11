@@ -9,10 +9,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DigitalParadox.Utilities.AssemblyLoader.UnitTests</RootNamespace>
     <AssemblyName>DigitalParadox.Utilities.AssemblyLoader.UnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,12 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.abstractions.2.0.1\lib\net35\xunit.abstractions.dll</HintPath>
     </Reference>
@@ -72,7 +68,7 @@
       <Name>DigitalParadox.Utilities.AssemblyLoader</Name>
     </ProjectReference>
     <ProjectReference Include="..\src\TestInterfaces\TestInterfaces.csproj">
-      <Project>{c4109ac2-53bc-4e82-a7ed-0b8a264cc3b0}</Project>
+      <Project>{C4109AC2-53BC-4E82-A7ED-0B8A264CC3B0}</Project>
       <Name>TestInterfaces</Name>
     </ProjectReference>
   </ItemGroup>

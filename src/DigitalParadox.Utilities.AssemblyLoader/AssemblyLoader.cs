@@ -22,7 +22,12 @@ namespace DigitalParadox.Utilities.AssemblyLoader
             //{
             //    return assembly.GetTypes().Where(q => q.GetInterface(typeof(T).FullName) != null);
             //}
-            return assembly.GetTypes<T>();
+
+            var assemblyTypes = assembly.GetTypes().ToList();
+
+            var assignableTypes = assemblyTypes.Where(q => typeof(T).GetTypeInfo().IsAssignableFrom(q));
+
+            return assignableTypes;
         }
 
         /// <summary>
@@ -30,7 +35,7 @@ namespace DigitalParadox.Utilities.AssemblyLoader
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<Assembly> GetAssemblies<T>()
+        public static IEnumerable<Assembly> GetAppDomainAssemblies<T>()
         {
 
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
@@ -40,7 +45,7 @@ namespace DigitalParadox.Utilities.AssemblyLoader
 
         public static Assembly GetAssembly<T>(FileInfo fi)
         {
-            var assemblies = new List<Assembly> {Assembly.Load(fi.FullName)};
+            var assemblies = new List<Assembly> {Assembly.LoadFrom(fi.FullName)};
             var filtered = assemblies.FirstOrDefault(q => FindDerivedTypes<T>(q).Any());
             return filtered;
         }
@@ -87,11 +92,12 @@ namespace DigitalParadox.Utilities.AssemblyLoader
             return assemblies.SelectMany(FindDerivedTypes<T>);
         }
 
-        public static IEnumerable<Type> GetTypes<T>(string nameOrFile = null)
+        public static IEnumerable<Type> GetTypes<T>(string filePath = null)
         {
-            if (nameOrFile == null)
-                return GetAssemblies<T>().GetTypes<T>();
-            var assembly = Assembly.Load(nameOrFile);
+            if (filePath == null)
+                return GetAppDomainAssemblies<T>().GetTypes<T>();
+
+            var assembly = GetAssembly<T>(new FileInfo(filePath));
 
             var types = FindDerivedTypes<T>(assembly);
             return types.Where(q => !q.IsAbstract && !q.IsInterface);

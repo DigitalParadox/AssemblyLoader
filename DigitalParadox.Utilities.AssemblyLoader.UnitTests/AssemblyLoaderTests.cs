@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Xunit;
 using Xunit.Abstractions;
+using TestInterfaces;
 
 namespace DigitalParadox.Utilities.AssemblyLoader.Tests
 {
@@ -13,12 +14,12 @@ namespace DigitalParadox.Utilities.AssemblyLoader.Tests
         [Fact]
         public void GetAssembliesLoadsExpectedAssembliesFromAllSources()
         {
-            var assemblies = AssemblyLoader.GetAssemblies<ITestAssembly>() as List<Assembly>;
+            var assemblies = AssemblyLoader.GetAppDomainAssemblies<ITestInterface>().ToList();
 
             Assert.NotNull(assemblies);
             Assert.NotEmpty(assemblies);
-            Assert.Collection(assemblies);
-            Assert.Equal(1, assemblies.Count);
+            Assert.DoesNotContain(assemblies, q => q == null);
+            Assert.Equal(2, assemblies.Count);
 
         }
         [Theory]
@@ -30,13 +31,15 @@ namespace DigitalParadox.Utilities.AssemblyLoader.Tests
 
             Assert.True(di.Exists);
 
-            var assemblies = AssemblyLoader.GetAssemblies<ITestAssembly>(di) as List<Assembly>;
+            var assemblies = AssemblyLoader.GetAssemblies<ITestInterface>(di).ToList();
 
             Assert.NotNull(assemblies);
             Assert.NotEmpty(assemblies);
-            Assert.Collection(assemblies);
+            Assert.DoesNotContain(assemblies, q=>q == null);
             Assert.Equal(1, assemblies.Count);
 
         }
+
+
     }
 }

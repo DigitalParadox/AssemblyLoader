@@ -5,3 +5,4 @@ packages
 .cr
 .idea
 .vscode
+*.user
