@@ -37,7 +37,6 @@ namespace DigitalParadox.Utilities.AssemblyLoader
         /// <returns></returns>
         public static IEnumerable<Assembly> GetAppDomainAssemblies<T>()
         {
-
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
             var filtered = assemblies.Where(q => FindDerivedTypes<T>(q).Any());
             return filtered;

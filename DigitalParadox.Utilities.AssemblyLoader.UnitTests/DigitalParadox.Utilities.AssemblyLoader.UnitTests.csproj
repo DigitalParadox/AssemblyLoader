@@ -52,12 +52,32 @@
   <ItemGroup>
     <Compile Include="AssemblyLoaderTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestClasses\InProjectClass.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="TestAssembliesTreeStructure\.gitkeep" />
     <None Include="packages.config" />
     <None Include="TestAssemblies\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory 3\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory1\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\SingleSubdirectory\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\SingleSubDirectory\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="TestAssemblies\TestAssembly.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

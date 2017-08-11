@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using System.IO;
 using Xunit;
-using Xunit.Abstractions;
 using TestInterfaces;
 
-namespace DigitalParadox.Utilities.AssemblyLoader.Tests
+using System.Linq;
+
+
+namespace DigitalParadox.Utilities.AssemblyLoader.UnitTests
 {
     public class AssemblyLoaderTests
     {
@@ -20,12 +18,12 @@ namespace DigitalParadox.Utilities.AssemblyLoader.Tests
             Assert.NotEmpty(assemblies);
             Assert.DoesNotContain(assemblies, q => q == null);
             Assert.Equal(2, assemblies.Count);
-
+           
         }
-        [Theory]
-        [InlineData(@".\TestAssemblies")]
-        //[InlineData(@".\TestAssembliesMultiDirectory")]
-        public void GetAssembliesLoadsExpectedAssembliesFromDirectoryPath(string path)
+        [Theory(DisplayName = "Load assemblies from specified directory")]
+        [InlineData(@".\TestAssembliesTreeStructure", 7)]
+        [InlineData(@".\TestAssemblies", 1)]
+        public void GetAssembliesLoadsExpectedAssembliesFromDirectory(string path, int expectedCount)
         {
             var di = new DirectoryInfo(path);
 
@@ -36,10 +34,24 @@ namespace DigitalParadox.Utilities.AssemblyLoader.Tests
             Assert.NotNull(assemblies);
             Assert.NotEmpty(assemblies);
             Assert.DoesNotContain(assemblies, q=>q == null);
-            Assert.Equal(1, assemblies.Count);
+            Assert.Equal(expectedCount, assemblies.Count);
 
         }
 
+        [Fact(DisplayName = "Load Assemblies from specified file")]
+        public void GetAssembliesLoadsExpectedAssembliesFromFile()
+        {
+            var fi = new FileInfo(@".\TestAssemblies\TestAssembly.dll");
+
+            Assert.True(fi.Exists);
+            
+            var assemblies = AssemblyLoader.GetAssembly<ITestInterface>(fi);
+            var types = assemblies.GetTypes<ITestInterface>().ToList();
+            Assert.False(types.Any(q=>q.IsInterface), "Types collection contains interfaces");
+            Assert.False(types.Any(q => q.IsAbstract), "Types collection contains abstract types");
+            Assert.NotNull(assemblies);
+
+        }
 
     }
 }
