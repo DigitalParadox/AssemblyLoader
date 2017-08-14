@@ -4,12 +4,18 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Glob;
 
 
 namespace DigitalParadox.Utilities.AssemblyLoader
 {
     public static class AssemblyLoader
     {
+        //TODO: Implement Option for Interfaces to be allowed 
+        public static bool AllowInterfaces { get; set; }
+        //TODO: Implement Option for Abstract Classes to be allowed 
+        public static bool AllowAbstract { get; set; }
+
         /// <summary>
         ///     Search Assembly and return specified types the deririve from given type
         /// </summary>
@@ -27,6 +33,16 @@ namespace DigitalParadox.Utilities.AssemblyLoader
 
             var assignableTypes = assemblyTypes.Where(q => typeof(T).GetTypeInfo().IsAssignableFrom(q));
 
+            if (!AllowInterfaces)
+            {
+                assignableTypes = assemblyTypes.Where(q => !q.GetTypeInfo().IsInterface);
+            }
+
+            if (!AllowAbstract)
+            {
+                assignableTypes = assemblyTypes.Where(q => !q.GetTypeInfo().IsAbstract);
+            }
+            
             return assignableTypes;
         }
 
@@ -49,32 +65,16 @@ namespace DigitalParadox.Utilities.AssemblyLoader
             return filtered;
         }
 
-        public static IEnumerable<Assembly> GetAssemblies<T>(DirectoryInfo di)
+        public static IEnumerable<Assembly> GetAssemblies<T>(DirectoryInfo di, string globFilter = "*.dll")
         {
-            var fsis = di.GetFileSystemInfos();
+            var fsis = di.GlobFileSystemInfos(globFilter);
             
             foreach (var fsi in fsis)
             {
-                if (fsi is DirectoryInfo)
-                {
-                    Trace.Write($"Directory {fsi.Name} Found digging deeper..");
-
-                    foreach (var assembly in GetAssemblies<T>(fsi as DirectoryInfo))
-                    {
-                        yield return assembly;
-                    }
-                    
-                }
                 yield return GetAssembly<T>(fsi as FileInfo);
             }
         }
-        public static IEnumerable<Assembly> GetAssemblies<T>(string path)
-        {
 
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            var filtered = assemblies.Where(q => FindDerivedTypes<T>(q).Any());
-            return filtered;
-        }
         /// <summary>
         ///     Find All Derived Types of <see cref="T" />in a collection of assemblies
         /// </summary>

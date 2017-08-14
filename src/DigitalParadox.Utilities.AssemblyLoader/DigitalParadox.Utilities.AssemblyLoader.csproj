@@ -16,4 +16,8 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Glob" Version="0.3.4" />
+  </ItemGroup>
+
 </Project>
