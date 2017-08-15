@@ -86,12 +86,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\src\DigitalParadox.Utilities.AssemblyLoader\DigitalParadox.Utilities.AssemblyLoader.csproj">
+    <ProjectReference Include="..\DigitalParadox.Utilities.AssemblyLoader\DigitalParadox.Utilities.AssemblyLoader.csproj">
       <Project>{7ef28735-7020-4057-b2c1-37b5c3c8e1b5}</Project>
       <Name>DigitalParadox.Utilities.AssemblyLoader</Name>
     </ProjectReference>
-    <ProjectReference Include="..\src\TestInterfaces\TestInterfaces.csproj">
-      <Project>{C4109AC2-53BC-4E82-A7ED-0B8A264CC3B0}</Project>
+    <ProjectReference Include="..\TestInterfaces\TestInterfaces.csproj">
+      <Project>{c4109ac2-53bc-4e82-a7ed-0b8a264cc3b0}</Project>
       <Name>TestInterfaces</Name>
     </ProjectReference>
   </ItemGroup>

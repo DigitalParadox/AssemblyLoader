@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.0
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalParadox.Utilities.AssemblyLoader", "src\DigitalParadox.Utilities.AssemblyLoader\DigitalParadox.Utilities.AssemblyLoader.csproj", "{7EF28735-7020-4057-B2C1-37B5C3C8E1B5}"
 EndProject
@@ -9,10 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestAssembly", "src\TestAss
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestInterfaces", "src\TestInterfaces\TestInterfaces.csproj", "{C4109AC2-53BC-4E82-A7ED-0B8A264CC3B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Utilities.AssemblyLoader.UnitTests", "DigitalParadox.Utilities.AssemblyLoader.UnitTests\DigitalParadox.Utilities.AssemblyLoader.UnitTests.csproj", "{3A7571B3-94FB-4CAC-9AA9-8F148A6C8C95}"
-	ProjectSection(ProjectDependencies) = postProject
-		{02EAA5E2-1592-4319-A788-DEADC1C120A4} = {02EAA5E2-1592-4319-A788-DEADC1C120A4}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalParadox.Utilities.AssemblyLoader.UnitTests", "src\DigitalParadox.Utilities.AssemblyLoader.UnitTests\DigitalParadox.Utilities.AssemblyLoader.UnitTests.csproj", "{3A7571B3-94FB-4CAC-9AA9-8F148A6C8C95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
