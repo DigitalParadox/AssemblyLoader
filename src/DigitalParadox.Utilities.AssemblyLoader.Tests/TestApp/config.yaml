@@ -1,0 +1,4 @@
+﻿--- 
+PluginDirectories: 
+ verbs : "{{AppDirectory}}\\Plugins\\Verbs"
+ helpers : "{{AppDirectory}}\\Plugins\\Helpers|{{WorkingDirectory}}\\Helpers\\"

@@ -1,0 +1,112 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+
+    <ApplicationIcon />
+
+    <OutputType>Library</OutputType>
+
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="TestApp\config.yaml" />
+    <None Remove="TestApp\HandleBarsCLI.deps.json" />
+    <None Remove="TestApp\HandleBarsCLI.dll" />
+    <None Remove="TestApp\HandlebarsCli.HandlebarsTemplateProcessor.dll" />
+    <None Remove="TestApp\HandlebarsCli.HandlebarsTemplateProcessor.pdb" />
+    <None Remove="TestApp\HandleBarsCLI.pdb" />
+    <None Remove="TestApp\HandlebarsCli.Plugins.dll" />
+    <None Remove="TestApp\HandlebarsCli.Plugins.pdb" />
+    <None Remove="TestApp\HandleBarsCLI.runtimeconfig.dev.json" />
+    <None Remove="TestApp\HandleBarsCLI.runtimeconfig.json" />
+    <None Remove="TestApp\Parsers.CommandLine.dll" />
+    <None Remove="TestApp\Parsers.CommandLine.pdb" />
+    <None Remove="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory 3\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory1\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\SingleSubdirectory\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\SingleSubDirectory\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\TestAssembly.dll" />
+    <None Remove="TestAssemblies\TestAssembly.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="TestApp\config.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\HandleBarsCLI.deps.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\HandleBarsCLI.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\HandlebarsCli.HandlebarsTemplateProcessor.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\HandlebarsCli.HandlebarsTemplateProcessor.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\HandleBarsCLI.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\HandlebarsCli.Plugins.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\HandlebarsCli.Plugins.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\HandleBarsCLI.runtimeconfig.dev.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\HandleBarsCLI.runtimeconfig.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\Parsers.CommandLine.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestApp\Parsers.CommandLine.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory 3\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory1\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\SingleSubdirectory\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\SingleSubDirectory\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssemblies\TestAssembly.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-preview-20170628-02" />
+    <PackageReference Include="xunit" Version="2.2.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DigitalParadox.Utilities.AssemblyLoader\DigitalParadox.Utilities.AssemblyLoader.csproj" />
+    <ProjectReference Include="..\TestInterfaces\TestInterfaces.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
+</Project>
