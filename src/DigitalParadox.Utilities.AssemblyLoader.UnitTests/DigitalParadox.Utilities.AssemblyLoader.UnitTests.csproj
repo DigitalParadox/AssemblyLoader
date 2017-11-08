@@ -1,13 +1,56 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <TargetFramework>net47</TargetFramework>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="xunit" Version="2.2.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3" />
+    <None Remove="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory 3\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory1\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\SingleSubdirectory\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\SingleSubDirectory\TestAssembly.dll" />
+    <None Remove="TestAssembliesTreeStructure\TestAssembly.dll" />
+    <None Remove="TestAssemblies\TestAssembly.dll" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory 3\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory1\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\SingleSubdirectory\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\MultipleSubDirectory\SingleSubDirectory2\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\SingleSubDirectory\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssembliesTreeStructure\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestAssemblies\TestAssembly.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.analyzers" Version="0.7.0" />
+    <PackageReference Include="xunit.runner.console" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\DigitalParadox.Utilities.AssemblyLoader\DigitalParadox.Utilities.AssemblyLoader.csproj" />
+    <ProjectReference Include="..\TestAssembly\TestAssembly.csproj" />
     <ProjectReference Include="..\TestInterfaces\TestInterfaces.csproj" />
   </ItemGroup>
+
 </Project>
