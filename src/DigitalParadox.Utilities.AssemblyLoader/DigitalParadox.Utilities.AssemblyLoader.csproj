@@ -17,7 +17,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Glob" Version="0.3.4" />
+    <PackageReference Include="FastMember" Version="1.1.0" />
+    <PackageReference Include="Glob" Version="0.4.0" />
   </ItemGroup>
 
 </Project>
