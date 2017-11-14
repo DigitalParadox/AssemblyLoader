@@ -11,9 +11,9 @@ namespace DigitalParadox.Utilities.AssemblyLoader
 {
     public static class AssemblyLoader
     {
-        //TODO: Implement Option for Interfaces to be allowed 
+
         public static bool AllowInterfaces { get; set; }
-        //TODO: Implement Option for Abstract Classes to be allowed 
+
         public static bool AllowAbstract { get; set; }
 
         /// <summary>
@@ -24,24 +24,10 @@ namespace DigitalParadox.Utilities.AssemblyLoader
         /// <returns>Collection of derived types of <see cref="T" /></returns>
         public static IEnumerable<Type> FindDerivedTypes<T>(Assembly assembly)
         {
-            //if (typeof(T).IsInterface)
-            //{
-            //    return assembly.GetTypes().Where(q => q.GetInterface(typeof(T).FullName) != null);
-            //}
 
             var assemblyTypes = assembly.GetTypes().ToList();
 
-            var assignableTypes = assemblyTypes.Where(q => typeof(T).GetTypeInfo().IsAssignableFrom(q));
-
-            if (!AllowInterfaces)
-            {
-                assignableTypes = assemblyTypes.Where(q => !q.GetTypeInfo().IsInterface);
-            }
-
-            if (!AllowAbstract)
-            {
-                assignableTypes = assemblyTypes.Where(q => !q.GetTypeInfo().IsAbstract);
-            }
+            var assignableTypes = assemblyTypes.Where(IsValidType<T>).ToList();
             
             return assignableTypes;
         }
@@ -54,13 +40,13 @@ namespace DigitalParadox.Utilities.AssemblyLoader
         public static IEnumerable<Assembly> GetAppDomainAssemblies<T>()
         {
             var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            var filtered = assemblies.Where(q => FindDerivedTypes<T>(q).Any());
+            var filtered = assemblies.Where(q => FindDerivedTypes<T>(q).Any()).ToList();
             return filtered;
         }
 
         public static Assembly GetAssembly<T>(FileInfo fi)
         {
-            var assemblies = new List<Assembly> {Assembly.LoadFrom(fi.FullName)};
+            var assemblies = new List<Assembly> { Assembly.LoadFrom(fi.FullName) };
             var filtered = assemblies.FirstOrDefault(q => FindDerivedTypes<T>(q).Any());
             return filtered;
         }
@@ -75,11 +61,30 @@ namespace DigitalParadox.Utilities.AssemblyLoader
             }
         }
 
+        public static bool IsValidType<TType>(Type type)
+        {
+
+            if (!AllowInterfaces) //filter interfaces if disabled by configuration 
+            {
+                if (type.IsInterface) return false;
+            }
+
+            if (!AllowAbstract) //filter abstract classes if disabled by configuration 
+            {
+                if (type.IsAbstract) return false;
+            }
+
+            var isAssignable = typeof(TType).IsAssignableFrom(type);
+
+            return isAssignable;
+
+        }
+
         /// <summary>
         ///     Find All Derived Types of <see cref="T" />in a collection of assemblies
         /// </summary>
         /// <typeparam name="T"></typeparam>
-        /// <param name="assemblies"></param>
+        /// <param name="assembly"></param>
         /// <returns></returns>
         public static IEnumerable<Type> GetTypes<T>(this Assembly assembly)
         {
@@ -99,7 +104,9 @@ namespace DigitalParadox.Utilities.AssemblyLoader
             var assembly = GetAssembly<T>(new FileInfo(filePath));
 
             var types = FindDerivedTypes<T>(assembly);
-            return types.Where(q => !q.IsAbstract && !q.IsInterface);
+
+
+            return types;
         }
     }
 
